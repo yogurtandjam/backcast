@@ -12,26 +12,33 @@
 </head>
 <body>
   <div id="app">
-    <h5 style="border:none;">
-      <br/><br/>this message will disappear when <em>app</em> view is correctly rendered<br/><br/><br/>
-    </h5>
   </div>
 
 
+  <script src="src/data/exampleVideoData.js"></script>
+  <script src="src/config/youtube.js"></script>
   <script src="src/models/video.js"></script>
   <script src="src/collections/videos.js"></script>
   <script src="src/lib/templateUrl.js"></script>
-
   <script src="src/views/app.js"></script>
   <script src="src/views/search.js"></script>
   <script src="src/views/videoList.js"></script>
   <script src="src/views/videoListEntry.js"></script>
   <script src="src/views/videoPlayer.js"></script>
-
   <script>
     backboneReady(() => {
-      new AppView();
+      // new AppView({ collection: window.exampleVideoData });
+      new Videos().search('pink guy')
     });
+
+    function searchFunction() {
+      var searchWords = $('input[type=text]').val()
+      new Videos().search(searchWords)
+      $('input[type=text]').val('');
+    }
+    $(document).ready(function() {
+      
+    })
   </script>
 
 </body>
