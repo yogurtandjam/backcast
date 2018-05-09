@@ -4,10 +4,6 @@ body {
   background: #f1f1f1;
 }
 
-form {
-  
-}
-
 .navbar {
   background: #fff;
   margin-bottom: 20px;
@@ -33,6 +29,18 @@ form {
   background: #f8f8f8;
   width: 20%;
   margin-left: -1px;
+}
+
+.title {
+  font-family: Helvetica;
+  font-weight: 900;
+  padding: 15px;
+  padding-left: 20px;
+}
+
+.standout {
+  font-family: Webdings;
+  font-size: 18pt;
 }
 
 .search-bar .btn:hover {
