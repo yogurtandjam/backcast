@@ -6,7 +6,7 @@ var VideoPlayerView = Backbone.View.extend({
       id: id,
       title: title,
       description: description
-    }
+    };
     this.$el.html(this.template(videoInfo));
     return this;
   },

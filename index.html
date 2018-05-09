@@ -27,19 +27,28 @@
   <script src="src/views/videoPlayer.js"></script>
   <script>
     backboneReady(() => {
-      // new AppView({ collection: window.exampleVideoData });
-      new Videos().search('pink guy')
+      new AppView();
+      new Videos().search('pink guy');
+      new AppView();
     });
-
+    // function on press run searchfunction
     function searchFunction() {
       var searchWords = $('input[type=text]').val()
       new Videos().search(searchWords)
-      $('input[type=text]').val('');
     }
-    $(document).ready(function() {
-      
-    })
+    setTimeout(function() {
+      $('input[type=text]').keydown(function(e) {
+        if (e.key !== "Backspace") {
+          new Videos().search($('input[type=text]').val() + e.key)
+        } else if (e.key === "Backspace") {
+          new Videos().search($('input[type=text]').val())
+        }
+      })
+    }, 1000)
   </script>
+  <script>
 
+
+  </script>
 </body>
 </html>

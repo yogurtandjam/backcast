@@ -7,7 +7,7 @@ describe('VideoListEntryView', function() {
 
     view = new VideoListEntryView({ model: model });
     view.template = _.template('<div class="video-list-entry-title"><%= snippet.title %></div>');
-    view.render();  // re-render with test template
+    view.render(); // re-render with test template
   });
 
   it('should render a video\'s content', function() {

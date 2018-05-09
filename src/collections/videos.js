@@ -14,11 +14,16 @@ var Videos = Backbone.Collection.extend({
       },
       // key: 'AIzaSyCii1LSuATN_6KeBAU9HiugnpcJWQWezuQ',
       success: function(data) {
-        console.log('data.items', data.items)
-        new AppView({ collection: data.items })
+        if (data.items.length < 5) {
+          return;
+        }
+        window.videoData = data.items;
+        var videos = new Videos(data.items);
+        new VideoListView({ el: '.list', collection: videos }).render();
+        new VideoPlayerView({ el: '.player' }).render(videos.models[0].attributes.id, videos.models[0].attributes.snippet.title, videos.models[0].attributes.snippet.description);
       }
-    })
-    console.log(input)
+    });
+    console.log(input);
   },
 
 });
